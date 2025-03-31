@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default function getBudgetObject(income, gdp, capita) {
+ export default function getBudgetObject(income, gdp, capita) {
     const budget = {
       income,
       gdp,
@@ -7,4 +7,5 @@ export default function getBudgetObject(income, gdp, capita) {
     };
   
     return budget;
-}
+
+  }
