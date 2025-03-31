@@ -5,7 +5,7 @@
       gdp,
       capita,
     };
-  
+
     return budget;
 
   }
