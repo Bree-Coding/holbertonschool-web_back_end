@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute multiple coroutines concurrently 
+"""Execute multiple coroutines concurrently
     and return their result sorted by delay."""
 
 import asyncio
