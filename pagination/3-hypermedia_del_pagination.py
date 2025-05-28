@@ -2,7 +2,6 @@
 """Module that handles deletion-resilient pagination."""
 import csv
 from typing import List, Dict
-index_range = __import__('0-simple_helper_function').index_range
 
 
 class Server:
@@ -33,23 +32,20 @@ class Server:
     def get_hyper_index(self, index: int = 0, page_size: int = 10) -> Dict:
         """Return a page from the dataset with index resilience"""
         assert isinstance(index, int) and index >= 0
-
         indexed_data = self.indexed_dataset()
-        assert index < len(self.dataset())
+        assert index < len(indexed_data)
 
         data = []
-        current = index
-        count = 0
+        next_index = index
 
-        while count < page_size and current < len(indexed_data):
-            if current in indexed_data:
-                data.append(indexed_data[current])
-                count += 1
-            current += 1
+        while len(data) < page_size and next_index < len(indexed_data):
+            if next_index in indexed_data:
+                data.append(indexed_data[next_index])
+            next_index += 1
 
         return {
             'index': index,
-            'next_index': current,
+            'next_index': next_index,
             'page_size': len(data),
             'data': data
         }
