@@ -31,7 +31,8 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> dict:
         """
-        Return a dictionary with pagination information, resilient to deletions.
+        Return a dictionary with pagination information,
+        resilient to deletions.
         """
         assert index is not None and index >= 0
         indexed_data = self.indexed_dataset()
@@ -48,7 +49,7 @@ class Server:
                 collected += 1
             current += 1
 
-        # Find the next index to query (first index after the last item returned)
+    # Find the next index to query (first index after the last item returned)
         next_index = current
 
         return {
